@@ -1,0 +1,43 @@
+Source: sonivox
+Section: sound
+Priority: extra
+Maintainer: Washington Indacochea Delgado <wachin.id@gmail.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.5.1
+Homepage: https://github.com/pedrolcl/sonivox/
+Rules-Requires-Root: no
+
+Package: sonivox
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Fork of the AOSP 'platform_external_sonivox' to use out of Android
+ This project is a fork of the Android Open Source Project 'platform_external_sonivox',
+ including a CMake based build system to be used not on Android, but on any other
+ computer Operating System. Google licensed this work originally named Sonivox EAS
+ (Embedded Audio Synthesis) from the company Sonic Network Inc. 
+ under the terms of the Apache License 2.0.
+ .
+ This is a Wave Table synthesizer, not using external soundfont files but embedded 
+ samples instead. It is also a real time GM synthesizer. It consumes very little 
+ resources, so it may be indicated in projects for small embedded devices. 
+ There is neither MIDI input nor Audio output facilities included in the library. 
+ You need to provide your own input/output.
+ .
+ You may find several projects already using this library as a git submodule:
+  * Linux-SonivoxEas with ALSA Sequencer MIDI input and Pulseaudio output.
+  * multiplatform-sonivoxeas with Drumstick::RT MIDI input and 
+ Qt Multimedia audio output.
+ The build system has two options: BUILD_SONIVOX_STATIC and BUILD_SONIVOX_SHARED
+ to control the generation and install of both the static and shared libraries 
+ from the sources. Both options are ON by default. Another option is 
+ BUILD_TESTING, also ON by default, to control if the unit tests are built, 
+ which require Google Test. See also the CMake documentation for common 
+ build options.
+ .
+ This fork currently reverts these commits:
+ Full revert of af41595 (Remove unused code from midi engine)
+ Full revert of 34ba480 (Remove unused code)
+ Partial revert of 2fa59c8 (Build separate sonivox libs with and without jet...)
+ All the sources from the Android repository are kept in place, but some are not 
+ built and included in the compiled products. A few headers, mostly empty, 
+ are included in the 'fakes' subdirectory to allow compilation outside Android.
