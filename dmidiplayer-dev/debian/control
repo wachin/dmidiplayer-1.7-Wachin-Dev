@@ -1,0 +1,42 @@
+Source: dmidiplayer
+Section: sound
+Priority: extra
+Maintainer: Washington Indacochea Delgado <wachin.id@gmail.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.5.1
+Homepage: https://github.com/pedrolcl/dmidiplayer/
+
+Rules-Requires-Root: no
+
+Package: dmidiplayer
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Drumstick Multiplatform MIDI File Player
+ This application is a multiplatform MIDI file player for Linux, Windows and macOS. 
+ It reads .MID (Standard MIDI Files), .KAR (Karaoke), and .WRK (Cakewalk) 
+ file formats, and outputs MIDI events to hardware MIDI ports and 
+ also software synths.
+ .
+ Drumstick is a set of GPLv3 licensed C++/Qt libraries for MIDI applications. 
+ The project includes several tools as examples, and among them is the
+ drumstick-guiplayer utility that leverages the Drumstick::ALSA library, 
+ so it is available only for Linux (because the ALSA sequencer is a linux only
+ technology). Some people have requested a program with the same functionalities 
+ on Windows and macOS, and here it is. But this program is much more than that, 
+ and also works on Linux ...
+ .
+ Some key features:
+  * MIDI Output to hardware MIDI ports, or any other Drumstick backend like soft synths
+  * Transpose song tonality between -12 and +12 semitones
+  * Change MIDI volume level (using MIDI CC7)
+  * Scale song speed between half and double tempo
+  * Lyrics, Piano Player and MIDI Channels views
+  * Supports MID/KAR/RMI (Standard MIDI Files) and WRK (Cakewalk) file formats
+ .
+ New in v1.7.0:
+  * Persistent song configuration. Stored song settings like volume, pitch, tempo,
+  text encoding and channel settings into song configuration files, either
+  automatically or when requested explicitly.
+  * MIDI Mixer: channel volumes can be adjusted individually.
+  * New MIDI file online search link in the Help menu.
+  * Other minor features: octave subscript designation, new in Drumstick v2.7.0.

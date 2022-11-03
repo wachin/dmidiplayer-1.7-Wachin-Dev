@@ -1,0 +1,47 @@
+Source: drumstick
+Section: sound
+Priority: extra
+Maintainer: Washington Indacochea Delgado <wachin.id@gmail.com>
+Build-Depends: debhelper-compat (= 13), autotools-dev
+Standards-Version: 4.5.1
+Homepage: https://sourceforge.net/projects/drumstick/
+Rules-Requires-Root: no
+
+Package: drumstick
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Drumstick is a set of MIDI libraries using C++/Qt idioms and style.
+ Includes a C++ wrapper around the ALSA library sequencer interface: 
+ ALSA sequencer provides software support for MIDI technology on Linux. 
+ A complementary library provides classes for processing SMF (Standard MIDI 
+ files: .MID/.KAR), RIFF RMID (*.rmi) and Cakewalk (.WRK) file formats. 
+ .
+ A multiplatform realtime MIDI I/O library and a GUI Widgets libraries are 
+ also provided for Linux, Windows, and Mac OSX.
+ .
+ Currently, there are four libraries designed to work together if/when needed:
+ .
+ * Drumstick::ALSA
+ is a Linux only C++/Qt wrapper around the ALSA Sequencer API. 
+ ALSA sequencer provides software support for MIDI technology on Linux.
+ .
+ * Drumstick::File 
+ provides easy multiplatform file I/O for Standard MIDI Files (.mid), 
+ RIFF RMID (.rmi)  and Cakewalk (.wrk) file formats.
+ .
+ * Drumstick::RT
+ is a realtime MIDI I/O library with pluggable backends. It uses 
+ Drumstick::ALSA on Linux, and other native frameworks on macOS and Windows.
+ .
+ * Drumstick::Widgets
+ contains MIDI widgets, including a Virtual Piano 
+ used by VMPK among other programs.
+ .
+ * Drumstick::ALSA
+ was the first library developed under the Drumstick umbrella, and is available
+ only on Linux, because ALSA Sequencer is an exclusive Linux technology. 
+ For realtime IO applications you can use the **Drumstick::RT** library 
+ which is multiplatform, and only depends on **Drumstick::ALSA** in 
+ Linux for its ALSA Sequencer backend. Other multiplatform backends 
+ are: Network/[ipMIDI](https://www.nerds.de/en/ipmidi.html) 
+ and [Fluidsynth](https://github.com/FluidSynth/fluidsynth).
